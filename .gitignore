@@ -1,0 +1,12 @@
+# Ignore Node.js dependencies
+node_modules/
+ats-backend/node_modules/
+ats-frontend/node_modules/
+
+# Ignore Python virtual env
+venv/
+ats-backend/resume-parser/venv/
+
+# Ignore PDFs and uploads
+*.pdf
+uploads/

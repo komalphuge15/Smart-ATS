@@ -1,0 +1,80 @@
+
+.applicant-dashboard {
+  padding: 3rem;
+  min-height: 90vh;
+  background: linear-gradient(to right, #f3e5f5, #ede7f6);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.applicant-dashboard h1 {
+  font-size: 32px;
+  color: #5c6bc0;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-subtext {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.application-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.application-card {
+  background: white;
+  border-left: 6px solid #7e57c2;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.application-card:hover {
+  transform: translateY(-4px);
+}
+
+.status {
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.status.under-review {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.shortlisted {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.applicant-dashboard {
+  padding: 2rem;
+}
+
+.applied-jobs-section {
+  margin-top: 2rem;
+}
+
+.applied-job-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.applied-job-card {
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 300px;
+}

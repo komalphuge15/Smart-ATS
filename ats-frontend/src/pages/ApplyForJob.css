@@ -1,0 +1,131 @@
+.apply-job-container {
+  padding: 2rem 4%;
+  background: linear-gradient(to bottom right, #f3f4f6, #e0e7ff);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.apply-heading {
+  text-align: center;
+  font-size: 36px;
+  color: #3f51b5;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.job-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+}
+
+.job-card h3 {
+  color: #2c387e;
+  margin-bottom: 0.5rem;
+}
+
+.job-card p {
+  font-size: 14px;
+  color: #333;
+  margin: 0.3rem 0;
+}
+
+.job-card button {
+  margin-top: 1rem;
+  padding: 10px 16px;
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.job-card button:hover {
+  background-color: #3f51b5;
+}
+
+/* Application Form */
+.application-form-container {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 650px;
+  margin: 0 auto 3rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease;
+}
+
+.application-form-container h2 {
+  color: #303f9f;
+  margin-bottom: 1rem;
+  font-size: 24px;
+  text-align: center;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.apply-form input {
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.apply-form input:focus {
+  border-color: #5c6bc0;
+  outline: none;
+}
+
+.apply-form label {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #5c6bc0;
+}
+
+.apply-form button {
+  background-color: #3f51b5;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.apply-form button:hover {
+  background-color: #303f9f;
+  transform: scale(1.02);
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

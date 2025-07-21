@@ -1,0 +1,93 @@
+.dashboard-container {
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #f0f4ff, #e1ecff);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.application-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.application-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+  border-left: 6px solid #6c63ff;
+}
+
+.application-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.application-card h3 {
+  color: #2e2e2e;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.status-tag {
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.status-tag.accepted {
+  background-color: #2ecc71;
+}
+
+.status-tag.pending {
+  background-color: #f1c40f;
+}
+
+.status-tag.rejected {
+  background-color: #e74c3c;
+}
+
+.score {
+  color: #6a5acd;
+  font-weight: 600;
+}
+
+.details-button {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.details-button:hover {
+  background-color: #5146d3;
+}
+
+.empty {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  padding: 2rem;
+}
