@@ -5,19 +5,24 @@ const ApplyForJob = () => {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    github: '',
-    linkedin: '',
-    tenth: '',
-    twelfth: '',
-    cgpa: '',
-    location: '',
-    availability: '',
-    expectedSalary: '',
-    resumeFile: null,
-  });
+  name: '',
+  email: '',
+  phone: '',
+  github: '',
+  linkedin: '',
+  tenth: '',
+  twelfth: '',
+  cgpa: '',
+  location: '',
+  availability: '',
+  expectedSalary: '',
+  qualification: '',
+  experience: '',
+  gender: '',
+  isKanakaEmployee: '',
+  resumeFile: null,
+});
+
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -115,16 +120,30 @@ const ApplyForJob = () => {
         <div className="application-form-container">
           <h2>Apply for: {selectedJob.title}</h2>
           <form className="apply-form" onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="👤 Full Name" value={formData.name} onChange={handleChange} required />
-            <input type="email" name="email" placeholder="📧 Email Address" value={formData.email} onChange={handleChange} required />
-            <input type="tel" name="phone" placeholder="📞 Phone Number" value={formData.phone} onChange={handleChange} required />
-            <input type="url" name="linkedin" placeholder="🔗 LinkedIn Profile" value={formData.linkedin} onChange={handleChange} />
-            <input type="url" name="github" placeholder="💻 GitHub Profile" value={formData.github} onChange={handleChange} />
-            <input type="text" name="tenth" placeholder="🎓 10th %" value={formData.tenth} onChange={handleChange} required />
-            <input type="text" name="twelfth" placeholder="🏫 12th %" value={formData.twelfth} onChange={handleChange} required />
-            <input type="text" name="cgpa" placeholder="📘 CGPA" value={formData.cgpa} onChange={handleChange} required />
+            <input type="text" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange} required />
+            <input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required />
+            <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
+            <input type="url" name="linkedin" placeholder="LinkedIn Profile" value={formData.linkedin} onChange={handleChange} />
+            <input type="url" name="github" placeholder="GitHub Profile" value={formData.github} onChange={handleChange} />
+            <input type="text" name="tenth" placeholder="10th %" value={formData.tenth} onChange={handleChange} required />
+            <input type="text" name="twelfth" placeholder="12th %/ Diploma" value={formData.twelfth} onChange={handleChange} required />
+            <input type="text" name="cgpa" placeholder="CGPA" value={formData.cgpa} onChange={handleChange} required />
+            <input type="text" name="qualification" placeholder="Qualification (e.g., BE, BSc)" value={formData.qualification} onChange={handleChange} required />
+            <input type="text" name="experience" placeholder="Experience (e.g., 2 years)" value={formData.experience} onChange={handleChange} />
+            <select name="gender" value={formData.gender} onChange={handleChange} required>
+              <option value="">Select Gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Other">Other</option>
+           </select>
+          <select name="isKanakaEmployee" value={formData.isKanakaEmployee} onChange={handleChange} required>
+            <option value="">Are you a Kanaka Employee?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
            
-            <label>📄 Upload Resume (PDF)</label>
+            <label>Upload Resume (PDF)</label>
             <input type="file" name="resumeFile" accept=".pdf" onChange={handleChange} required />
             <button type="submit">Submit Application</button>
           </form>

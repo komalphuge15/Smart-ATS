@@ -23,6 +23,9 @@ app.use('/api/jobs', require('./routes/jobs'));
 app.use('/api/apply', require('./routes/apply'));
 app.use('/api/applicants', require('./routes/applicants'));
 app.use('/api/dashboard', require('./routes/dashboard'));
+app.use('/api/applications', require('./routes/applications'));
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

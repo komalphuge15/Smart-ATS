@@ -1,36 +1,181 @@
-
+/* Main Container */
 .applicants-container {
-  padding: 3rem;
-  background: #e8eaf6;
-  min-height: 90vh;
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f9f9ff, #e3eafc);
 }
 
-.applicant-list {
+/* Header */
+h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  color: #4c51bf;
+  margin-bottom: 2rem;
+}
+
+/* Grid-Based Filters */
+.filters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 1.5rem;
+  padding: 20px;
+  background-color: #f4f6fd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.filters-grid input,
+.filters-grid select {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  transition: all 0.2s ease-in-out;
+}
+
+.filters-grid input:focus,
+.filters-grid select:focus {
+  border-color: #7e57c2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.2);
+}
+
+/* Filter Action Buttons */
+.filter-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-actions button {
+  background: linear-gradient(to right, #667eea, #764ba2);
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.filter-actions button:hover {
+  opacity: 0.9;
+}
+
+/* Export Button Style Consistency */
+.export-btn {
+  background: linear-gradient(to right, #5c6bc0, #3949ab);
+}
+
+/* Applicant Cards */
+.applicant-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
 }
 
 .applicant-card {
   background: white;
+  border-radius: 16px;
   padding: 1.5rem;
-  border-left: 5px solid #5c6bc0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.applicant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.applicant-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.applicant-card p {
+  margin: 6px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Resume Button */
 .resume-btn {
   display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
-  background-color: #7e57c2;
+  margin-top: 12px;
+  background-color: #4caf50;
   color: white;
   text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+.resume-btn:hover {
+  background-color: #388e3c;
 }
 
-.resume-btn:hover {
+/* Status Select Section */
+.status-controls {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.status-controls label {
+  font-weight: 500;
+  color: #4c51bf;
+}
+.status-controls select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Applicant Actions */
+.applicant-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.applicant-actions button {
+  flex: 1;
+  padding: 10px 12px;
   background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.applicant-actions button:hover {
+  background-color: #3f51b5;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .filters-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+  .filter-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .applicant-actions {
+    flex-direction: column;
+  }
 }

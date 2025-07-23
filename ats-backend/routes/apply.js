@@ -7,21 +7,25 @@ const Application = require('../models/Application');
 const Job = require('../models/Job');
 const { protect } = require('../middleware/authMiddleware');
 
-// 🗂️ Multer setup for resume upload
+// Multer setup for resume upload
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, 'uploads/'),
   filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname),
 });
 const upload = multer({ storage });
 
-// ✅ POST /api/apply — Apply for a job
+// Apply for a job
 router.post('/', protect, upload.single('resumeFile'), async (req, res) => {
   try {
     const {
       name, email, phone, github, linkedin,
       tenth, twelfth, cgpa, location,
-      availability, expectedSalary, jobId
+      availability, expectedSalary, jobId,
+      qualification, experience, gender, isKanakaEmployee
     } = req.body;
+    // Convert string to boolean 
+const isKanaka = (isKanakaEmployee === 'Yes' || isKanakaEmployee === true);
+
 
     const job = await Job.findById(jobId);
     if (!job) return res.status(404).json({ message: 'Job not found' });
@@ -46,7 +50,10 @@ router.post('/', protect, upload.single('resumeFile'), async (req, res) => {
         return res.status(500).json({ message: 'Invalid resume parser output' });
       }
 
-      // ✅ Always create a new application (even if user applies again)
+      // Auto-shortlist if score >= 65
+      let onboardingStatus = 'Not Started';
+      if (parsed.score >= 65) onboardingStatus = 'Shortlisted';
+
       const newApp = new Application({
         name,
         email: parsed.email || email,
@@ -59,26 +66,32 @@ router.post('/', protect, upload.single('resumeFile'), async (req, res) => {
         location,
         availability,
         expectedSalary,
+        qualification,
+        experience,
+        gender,
+        isKanakaEmployee: isKanakaEmployee === 'Yes',
         resumeFile: req.file?.filename || '',
         jobId: job._id,
         recruiterId: job.postedBy,
         applicantId: req.user.id,
         score: parsed.score ?? null,
         skills: Array.isArray(parsed.skills) ? parsed.skills : [],
+        onboardingStatus, 
+        jobTitle: job.title
       });
 
       await newApp.save();
-      console.log('✅ New application saved:', newApp);
+      console.log(' New application saved:', newApp);
       res.status(201).json({ message: 'Application submitted successfully!', application: newApp });
     });
 
   } catch (err) {
-    console.error('❌ Application Error:', err.message);
+    console.error(' Application Error:', err.message);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
-// ✅ GET /api/apply/my-applications/:userId — List all applications of an applicant
+// List all applications of an applicant
 router.get('/my-applications/:userId', protect, async (req, res) => {
   try {
     const applications = await Application.find({ applicantId: req.params.userId })
@@ -87,18 +100,18 @@ router.get('/my-applications/:userId', protect, async (req, res) => {
 
     res.json(applications);
   } catch (err) {
-    console.error('❌ Error fetching applications:', err.message);
+    console.error('Error fetching applications:', err.message);
     res.status(500).json({ message: 'Server error while fetching applications' });
   }
 });
 
-// ✅ DELETE application
+// DELETE application
 router.delete('/:applicationId', protect, async (req, res) => {
   try {
     await Application.findByIdAndDelete(req.params.applicationId);
     res.json({ message: 'Application deleted successfully' });
   } catch (err) {
-    console.error('❌ Error deleting application:', err.message);
+    console.error(' Error deleting application:', err.message);
     res.status(500).json({ message: 'Failed to delete application' });
   }
 });

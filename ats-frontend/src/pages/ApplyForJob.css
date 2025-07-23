@@ -26,6 +26,9 @@
   padding: 1.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .job-card:hover {
@@ -35,12 +38,16 @@
 .job-card h3 {
   color: #2c387e;
   margin-bottom: 0.5rem;
+  word-break: break-word;
 }
 
 .job-card p {
   font-size: 14px;
   color: #333;
   margin: 0.3rem 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .job-card button {
@@ -64,10 +71,14 @@
   background-color: white;
   border-radius: 16px;
   padding: 2rem;
+  width: 100%;
   max-width: 650px;
   margin: 0 auto 3rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   animation: fadeInUp 0.6s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .application-form-container h2 {
@@ -83,15 +94,20 @@
   gap: 1rem;
 }
 
-.apply-form input {
+.apply-form input,
+.apply-form select {
   padding: 12px;
   font-size: 15px;
   border-radius: 8px;
   border: 1px solid #ccc;
   transition: border-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
 }
 
-.apply-form input:focus {
+.apply-form input:focus,
+.apply-form select:focus {
   border-color: #5c6bc0;
   outline: none;
 }
