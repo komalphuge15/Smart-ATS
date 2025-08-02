@@ -9,6 +9,9 @@
 ## 📷 Website Preview
 
 <img src="ats-frontend/assets/Screenshot (2).png" width="700"/>
+<img src="ats-frontend/assets/Screenshot (3).png" width="700"/>
+
+
 
 ---
 
@@ -30,8 +33,4 @@
 - **Backend**: Python  
 - **PDF Parsing**: PyPDF2  
 - **Env Config**: python-dotenv
-
----
-
-## 📁 Project Structure
 
