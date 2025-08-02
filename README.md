@@ -28,8 +28,9 @@
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Streamlit  
-- **Backend**: Python  
-- **PDF Parsing**: PyPDF2  
+- **Frontend**: ReactJs
+- **Backend**: Nodejs ,Expressjs
+- **Database**: MongoDB 
+- **PDF Parsing**: OCR(Tesseract)
 - **Env Config**: python-dotenv
 
